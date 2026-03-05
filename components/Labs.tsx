@@ -8,7 +8,7 @@ const projects = [
   {
     name: "TuGuiaSV",
     description:
-      "Plataforma digital de información y servicios para El Salvador. Conecta personas con negocios, rutas, trámites y más.",
+      "Infraestructura digital que centraliza y verifica datos de negocios, servicios y lugares de interés en El Salvador. Certeza informativa, no reseñas.",
     status: "En desarrollo",
     statusColor: "bg-emerald-500/20 text-emerald-400",
     href: "/labs/tuguiasv",
@@ -16,7 +16,7 @@ const projects = [
   {
     name: "LUMEN",
     description:
-      "Herramienta de gestión y productividad interna diseñada para equipos técnicos que necesitan orden sin complejidad innecesaria.",
+      "Plataforma de acompañamiento emocional continuo asistida por IA. Un puente entre el silencio cotidiano y la ayuda profesional humana.",
     status: "Prototipo",
     statusColor: "bg-amber-500/20 text-amber-400",
     href: "/labs/lumen",
@@ -24,8 +24,8 @@ const projects = [
   {
     name: "FlowCore",
     description:
-      "Motor de automatización de procesos para operaciones empresariales repetitivas. Reglas, disparadores y flujos configurables.",
-    status: "Concepto",
+      "Sistema de medición de caudal industrial con software de bajo costo para plantas de tratamiento de agua en Latinoamérica.",
+    status: "Investigación",
     statusColor: "bg-sky-500/20 text-sky-400",
     href: "/labs/flowcore",
   },

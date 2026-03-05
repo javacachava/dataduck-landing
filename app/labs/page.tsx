@@ -11,9 +11,9 @@ const projects = [
   {
     name: "TuGuiaSV",
     description:
-      "Plataforma digital de información y servicios para El Salvador. Conecta personas con negocios, rutas, trámites y recursos locales.",
+      "Infraestructura digital nacional que centraliza, verifica y mantiene vivos los datos de negocios, servicios, lugares de interés y eventos locales en El Salvador.",
     problem:
-      "La información sobre servicios, negocios y trámites en El Salvador está dispersa y desactualizada.",
+      "Información desactualizada, negocios cerrados que siguen en línea, coordenadas ficticias — una asimetría de datos que frena la movilidad y el comercio local.",
     status: "En desarrollo",
     statusColor: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
     href: "/labs/tuguiasv",
@@ -22,9 +22,9 @@ const projects = [
   {
     name: "LUMEN",
     description:
-      "Herramienta de gestión y productividad interna diseñada para equipos técnicos que necesitan estructura sin complejidad.",
+      "Plataforma de acompañamiento emocional continuo asistida por Inteligencia Artificial. Un puente entre el silencio cotidiano y la ayuda profesional humana.",
     problem:
-      "Las herramientas de gestión existentes son demasiado complejas para equipos pequeños o demasiado simples para trabajo técnico real.",
+      "El estigma social, la falta de acceso oportuno y el dolor entre sesiones dejan a las personas sin soporte emocional cuando más lo necesitan.",
     status: "Prototipo",
     statusColor: "bg-amber-500/20 text-amber-400 border-amber-500/30",
     href: "/labs/lumen",
@@ -33,10 +33,10 @@ const projects = [
   {
     name: "FlowCore",
     description:
-      "Motor de automatización de procesos empresariales. Reglas, disparadores y flujos configurables sin necesidad de programar.",
+      "Sistema de medición de caudal industrial con software de bajo costo para plantas de tratamiento de agua potable y residual en Latinoamérica.",
     problem:
-      "Muchas empresas dependen de procesos manuales repetitivos que podrían automatizarse con reglas simples.",
-    status: "Concepto",
+      "El software SCADA, las tarjetas propietarias y las licencias elevan los costos de instrumentación hasta hacer inviable el monitoreo en plantas con presupuestos limitados.",
+    status: "Investigación",
     statusColor: "bg-sky-500/20 text-sky-400 border-sky-500/30",
     href: "/labs/flowcore",
     accent: "from-sky-500 to-blue-500",
@@ -69,7 +69,11 @@ export default function LabsPage() {
               investiga y construye proyectos propios. No son ejercicios
               académicos ni prototipos de hackathon — son productos con visión de
               negocio, respaldados por el mismo equipo que construye software
-              empresarial para clientes reales.
+              empresarial para clientes reales. Cada proyecto nace de una
+              necesidad que identificamos en nuestro entorno: desde la falta de
+              información verificada en El Salvador, hasta brechas en
+              acompañamiento emocional y costos prohibitivos en instrumentación
+              industrial.
             </p>
           </motion.div>
         </div>
