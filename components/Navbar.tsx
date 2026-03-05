@@ -3,12 +3,15 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const navLinks = [
-  { label: "Soluciones", href: "#soluciones" },
-  { label: "Proceso", href: "#proceso" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Soluciones", href: "/#soluciones" },
+  { label: "Proceso", href: "/#proceso" },
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Equipo", href: "/equipo" },
+  { label: "Labs", href: "/labs" },
+  { label: "FAQ", href: "/#faq" },
 ];
 
 export default function Navbar() {
@@ -34,36 +37,36 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#inicio" className="flex items-center gap-2.5">
+        <Link href="/" className="flex items-center gap-2.5">
           <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
             <span className="text-white font-extrabold text-sm">D</span>
           </div>
           <span className="text-white font-bold text-xl tracking-tight">
             Data<span className="text-teal-400">Duck</span>
           </span>
-        </a>
+        </Link>
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* CTA */}
         <div className="hidden md:flex items-center gap-4">
-          <a
-            href="#contacto"
+          <Link
+            href="/#contacto"
             className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-to-r from-teal-500 to-emerald-500 text-black hover:from-teal-400 hover:to-emerald-400 transition-all duration-200 shadow-lg shadow-teal-500/20"
           >
             Agendar llamada
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -86,21 +89,21 @@ export default function Navbar() {
           >
             <div className="px-6 py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className="text-gray-300 hover:text-white transition-colors"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#contacto"
+              <Link
+                href="/#contacto"
                 className="px-5 py-2.5 text-sm font-semibold rounded-lg bg-gradient-to-r from-teal-500 to-emerald-500 text-black text-center"
               >
                 Agendar llamada
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

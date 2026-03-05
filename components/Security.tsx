@@ -134,10 +134,17 @@ export default function Infrastructure() {
                 <div className="relative z-10 w-24 h-24 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center shadow-lg shadow-teal-500/30">
                   <Server size={48} className="text-white" />
                 </div>
-                {/* Nodes */}
-                {[0, 60, 120, 180, 240, 300].map((deg, i) => (
+                {/* Nodes — pre-computed positions to avoid SSR hydration mismatch */}
+                {[
+                  { top: "50%", left: "92%" },
+                  { top: "86.38%", left: "71%" },
+                  { top: "86.38%", left: "29%" },
+                  { top: "50%", left: "8%" },
+                  { top: "13.62%", left: "29%" },
+                  { top: "13.62%", left: "71%" },
+                ].map((pos, i) => (
                   <motion.div
-                    key={deg}
+                    key={i}
                     animate={{ scale: [1, 1.3, 1] }}
                     transition={{
                       duration: 2,
@@ -146,8 +153,8 @@ export default function Infrastructure() {
                     }}
                     className="absolute w-3 h-3 rounded-full bg-teal-400/60"
                     style={{
-                      top: `${50 + 42 * Math.sin((deg * Math.PI) / 180)}%`,
-                      left: `${50 + 42 * Math.cos((deg * Math.PI) / 180)}%`,
+                      top: pos.top,
+                      left: pos.left,
                       transform: "translate(-50%, -50%)",
                     }}
                   />

@@ -1,82 +1,121 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Lightbulb, ArrowUpRight } from "lucide-react";
+import { Lightbulb, ArrowUpRight, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const projects = [
   {
     name: "TuGuiaSV",
-    description: "Plataforma digital para El Salvador.",
+    description:
+      "Plataforma digital de información y servicios para El Salvador. Conecta personas con negocios, rutas, trámites y más.",
+    status: "En desarrollo",
+    statusColor: "bg-emerald-500/20 text-emerald-400",
+    href: "/labs/tuguiasv",
   },
   {
     name: "LUMEN",
-    description: "Herramienta de productividad interna.",
+    description:
+      "Herramienta de gestión y productividad interna diseñada para equipos técnicos que necesitan orden sin complejidad innecesaria.",
+    status: "Prototipo",
+    statusColor: "bg-amber-500/20 text-amber-400",
+    href: "/labs/lumen",
   },
   {
     name: "FlowCore",
-    description: "Motor de automatización de procesos.",
+    description:
+      "Motor de automatización de procesos para operaciones empresariales repetitivas. Reglas, disparadores y flujos configurables.",
+    status: "Concepto",
+    statusColor: "bg-sky-500/20 text-sky-400",
+    href: "/labs/flowcore",
   },
 ];
 
 export default function Labs() {
   return (
-    <section className="py-20 relative">
+    <section className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5 }}
-          className="glass-card rounded-2xl p-8 md:p-12"
+          className="text-center mb-12"
         >
-          <div className="flex flex-col md:flex-row md:items-center gap-8">
-            {/* Left */}
-            <div className="flex-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
-                  <Lightbulb size={20} className="text-amber-400" />
-                </div>
-                <span className="text-amber-400 text-sm font-medium tracking-wider uppercase">
-                  Innovación
-                </span>
-              </div>
-              <h3 className="text-2xl font-bold text-white mb-3">
-                También construimos lo nuestro
-              </h3>
-              <p className="text-gray-400 text-sm leading-relaxed max-w-lg">
-                Además del trabajo con clientes, nuestro equipo desarrolla
-                proyectos propios que nos permiten experimentar, aprender y
-                mejorar constantemente.
-              </p>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center">
+              <Lightbulb size={20} className="text-amber-400" />
             </div>
-
-            {/* Right: project pills */}
-            <div className="flex flex-col gap-3 md:min-w-[260px]">
-              {projects.map((project, i) => (
-                <motion.div
-                  key={project.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.1 }}
-                  className="flex items-center justify-between gap-4 px-5 py-3.5 rounded-xl bg-white/[0.03] border border-white/5 hover:border-amber-500/20 transition-all group cursor-pointer"
-                >
-                  <div>
-                    <p className="text-white font-semibold text-sm">
-                      {project.name}
-                    </p>
-                    <p className="text-gray-500 text-xs">
-                      {project.description}
-                    </p>
-                  </div>
-                  <ArrowUpRight
-                    size={16}
-                    className="text-gray-600 group-hover:text-amber-400 transition-colors shrink-0"
-                  />
-                </motion.div>
-              ))}
-            </div>
+            <span className="text-amber-400 text-sm font-medium tracking-wider uppercase">
+              Innovación
+            </span>
           </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            También construimos{" "}
+            <span className="gradient-text">lo nuestro</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Desarrollamos proyectos internos que demuestran nuestra capacidad
+            técnica y amplían nuestra visión como empresa de tecnología.
+          </p>
+        </motion.div>
+
+        {/* Project cards */}
+        <div className="grid md:grid-cols-3 gap-5 mb-10">
+          {projects.map((project, i) => (
+            <motion.div
+              key={project.name}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+            >
+              <Link
+                href={project.href}
+                className="glass-card rounded-2xl p-7 flex flex-col h-full group hover:border-amber-500/20 transition-all duration-300 block"
+              >
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-bold text-white">
+                    {project.name}
+                  </h3>
+                  <span
+                    className={`px-3 py-1 text-xs font-medium rounded-full ${project.statusColor}`}
+                  >
+                    {project.status}
+                  </span>
+                </div>
+                <p className="text-gray-500 text-sm leading-relaxed flex-1">
+                  {project.description}
+                </p>
+                <div className="mt-5 flex items-center gap-2 text-amber-400 text-sm font-medium group-hover:gap-3 transition-all">
+                  Conocer más
+                  <ArrowUpRight
+                    size={14}
+                    className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                  />
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <Link
+            href="/labs"
+            className="inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm font-medium transition-colors group"
+          >
+            Ver todos los proyectos
+            <ArrowRight
+              size={14}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
         </motion.div>
       </div>
     </section>
